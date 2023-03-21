@@ -6,7 +6,11 @@
 
 <?php 
     // Including Index file here ................
-    require_once 'content/main.php';
+    if(isset($_SESSION['flag']) && $_SESSION['flag'] == "true"){
+        require_once 'content/print_result.php';
+    }else{
+        require_once 'content/main.php';
+    }
 ?>
 
 <?php 

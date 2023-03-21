@@ -3,13 +3,10 @@
     require_once 'header/header.php';
 ?>
 
+<h1 class="float-right">Hitesh Kumar</h1>
 
-<?php 
-    // Including Index file here ................
-    require_once 'content/main.php';
-?>
 
 <?php 
     // Including Footer here .................
-    // require_once 'footer/footer.php';
+    require_once 'footer/footer.php';
 ?>

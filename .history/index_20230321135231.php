@@ -11,5 +11,5 @@
 
 <?php 
     // Including Footer here .................
-    // require_once 'footer/footer.php';
+    require_once 'footer/footer.php';
 ?>
