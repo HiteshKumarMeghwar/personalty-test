@@ -22,24 +22,20 @@
         $teamwork = 0;
         $customer_experience = 0;
         $learn_and_apply = 0;
-
         if ($result->num_rows > 0) {
-            // this loop running on coming data from database ..............................
-            while($row = $result->fetch_assoc()) 
-            {
-                // this loop running on 50 questions .................................
-                for($i = 1; $i <= 50; $i++)
-                {     
-                    if($row['question_id'] == $i)
-                    {
+            // this loop running on 50 questions .................................
+            for($i = 1; $i <= 4; $i++){
+                // this loop running on coming data from database ..............................
+                while($row = $result->fetch_assoc()) {
+                    if($row['question_id'] == $i){
+                        if($row['question_id'] == 2){
+                            die($row['question_id']);
+                        }
                         // this loop running on 5 core values ........................
                         for($x = 1; $x <= 5; $x++){
-                            if($row['core_value_id'] == $x)
-                            {
-                                if($row['value'] == "p")
-                                {
-                                    if($row['option'] == "agree")
-                                    {
+                            if($row['core_value_id'] == $x){
+                                if($row['value'] == "p"){
+                                    if($row['option'] == "agree"){
                                         if($x == 1){
                                             $honesty++;
                                         }elseif($x == 2){
@@ -149,26 +145,12 @@
                     // if($row['question_id'])
                     // echo "<br />";
                 }
+                $_SESSION['honesty'] = $honesty;
+                $_SESSION['ownership'] = $ownership;
+                $_SESSION['teamwork'] = $teamwork;
+                $_SESSION['customer_experience'] = $customer_experience;
+                $_SESSION['learn_and_apply'] = $learn_and_apply;
             }
-
-            $p_honesty = $honesty/7*100;
-            $p_ownership = $ownership/19*100;
-            $p_teamwork = $teamwork/23*100;
-            $p_customer_experience = $customer_experience/10*100;
-            $p_learn_and_apply = $learn_and_apply/9*100;
-
-            $query = "INSERT INTO final_result (user_id, honesty, ownership, teamwork, customer_experience, learn_and_apply) VALUES ('$last_inserted_user_id', '$p_honesty', '$p_ownership', '$p_teamwork', '$p_customer_experience', '$p_learn_and_apply')";
-            $result = mysqli_query($conn, $query);
-            if(!$result){
-                echo "Error: " . mysqli_error($conn);
-            }
-
-            $_SESSION['honesty'] = $p_honesty;
-            $_SESSION['ownership'] = $p_ownership;
-            $_SESSION['teamwork'] = $p_teamwork;
-            $_SESSION['customer_experience'] = $p_customer_experience;
-            $_SESSION['learn_and_apply'] = $p_learn_and_apply;
-
         }else{
             unset($_SESSION['last_inserted_user_id']);
             header('location:index.php');
@@ -178,7 +160,7 @@
 
 <?php
     // Execute a query on the database
-    $sql = "SELECT * FROM questions ORDER BY RAND()";
+    $sql = "SELECT * FROM try ORDER BY RAND()";
     $result = $conn->query($sql);
 
 ?>
@@ -191,11 +173,11 @@
                         <div class="row align-items-center">
                             <div class="col-12 col-md-8"> 
                                 <div class="text-secondary-d1 text-120" style="font-family: cursive; font-weight: bolder;">
-                                    1  Honesty => <?php echo $_SESSION['honesty']."%"."<br />" ?>
-                                    2  Ownership => <?php echo $_SESSION['ownership']."%"."<br />" ?>
-                                    3  Teamwork => <?php echo $_SESSION['teamwork']."%"."<br />" ?>
-                                    4  Customer Experience => <?php echo $_SESSION['customer_experience']."%"."<br />" ?>
-                                    5  Learn and apply => <?php echo $_SESSION['learn_and_apply']."%" ?>
+                                    1  Honesty => <?php echo $_SESSION['honesty']."<br />" ?>
+                                    2  Ownership => <?php echo $_SESSION['ownership']."<br />" ?>
+                                    3  Teamwork => <?php echo $_SESSION['teamwork']."<br />" ?>
+                                    4  Customer Experience => <?php echo $_SESSION['customer_experience']."<br />" ?>
+                                    5  Learn and apply => <?php echo $_SESSION['learn_and_apply'] ?>
                                 </div>
                                 <div class="col-12 col-md-4 text-center mb-3">
                                     <a href="index.php" class="f-n-hover btn btn-warning btn-raised px-4 py-25 w-75 text-600">Return to Test</a>
@@ -205,9 +187,9 @@
                     </div>
                 </div>
             <?php
-            unset($_SESSION['last_inserted_user_id']);
-            session_unset(); // Unset all the session variables
-            session_destroy(); // Destroy the session data from the server and invalidate the session ID
+            // unset($_SESSION['last_inserted_user_id']);
+            // session_unset(); // Unset all the session variables
+            // session_destroy(); // Destroy the session data from the server and invalidate the session ID
         }else{
             ?>
                 <form method="post" action="content/my_process.php">

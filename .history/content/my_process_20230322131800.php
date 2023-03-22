@@ -45,7 +45,7 @@
                         $option_id = 3;
                     }
                     // Define INSERT query
-                    $query = "INSERT INTO questions_options (question_id, option_id, user_id) VALUES ('$question_id', '$option_id', '$last_inserted_id')";
+                    $query = "INSERT INTO questions_options (question_id, option_id, core_value_id, user_id) VALUES ('$question_id', '$option_id', '$question_id', '$last_inserted_id')";
                     // Execute query
                     $result = mysqli_query($conn, $query);
                 }

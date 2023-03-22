@@ -178,7 +178,7 @@
 
 <?php
     // Execute a query on the database
-    $sql = "SELECT * FROM questions ORDER BY RAND()";
+    $sql = "SELECT * FROM try ORDER BY RAND()";
     $result = $conn->query($sql);
 
 ?>

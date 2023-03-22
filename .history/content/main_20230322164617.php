@@ -28,7 +28,7 @@
             while($row = $result->fetch_assoc()) 
             {
                 // this loop running on 50 questions .................................
-                for($i = 1; $i <= 50; $i++)
+                for($i = 1; $i <= 4; $i++)
                 {     
                     if($row['question_id'] == $i)
                     {

@@ -8,6 +8,7 @@
     if(isset($_POST['submit'])){
         if(isset($_POST['name']) && $_POST['name'] != "")
         {
+            unset($_SESSION['last_inserted_user_id']);
             $name = $_POST['name'];
             // Define INSERT query
             $query = "INSERT INTO users (name) VALUES ('$name')";
@@ -24,7 +25,6 @@
                     $query = "DELETE FROM users WHERE id = $last_inserted_id";
                     mysqli_query($conn, $query);
                     $message = "Please Check All Test Options";
-                    unset($_SESSION['last_inserted_user_id']);
                     header('location:../index.php');
                 }else{
                     $question_option = $_POST["option-".$question_id];
@@ -45,7 +45,7 @@
                         $option_id = 3;
                     }
                     // Define INSERT query
-                    $query = "INSERT INTO questions_options (question_id, option_id, user_id) VALUES ('$question_id', '$option_id', '$last_inserted_id')";
+                    $query = "INSERT INTO questions_options (question_id, option_id, core_value_id, user_id) VALUES ('$question_id', '$option_id', '$question_id', '$last_inserted_id')";
                     // Execute query
                     $result = mysqli_query($conn, $query);
                 }
