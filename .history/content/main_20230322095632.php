@@ -19,7 +19,7 @@
         if ($result->num_rows > 0) {
             $_SESSION['flag'] = "true";
             while($row = $result->fetch_assoc()) {
-                echo "<pre>";
+                // echo "<pre>";
                 print_r($row);
                 // var_dump($row['point']);
                 // echo intval($row['point']);

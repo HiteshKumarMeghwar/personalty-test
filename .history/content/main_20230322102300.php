@@ -11,6 +11,11 @@
             INNER JOIN questions_options ON questions.id = questions_options.question_id 
             INNER JOIN options ON questions_options.option_id = options.id
             INNER JOIN core_values ON core_values.question_id = questions.id
+            AND core_values.honesty IS NOT NULL
+            AND core_values.ownership IS NOT NULL
+            AND core_values.teamwork IS NOT NULL
+            AND core_values.customer_experience IS NOT NULL
+            AND core_values.learn_and_apply IS NOT NULL
             WHERE user_id=".$last_inserted_user_id;
 
         // execute query

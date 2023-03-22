@@ -10,7 +10,6 @@
             FROM questions 
             INNER JOIN questions_options ON questions.id = questions_options.question_id 
             INNER JOIN options ON questions_options.option_id = options.id
-            INNER JOIN core_values ON core_values.question_id = questions.id
             WHERE user_id=".$last_inserted_user_id;
 
         // execute query
@@ -19,7 +18,7 @@
         if ($result->num_rows > 0) {
             $_SESSION['flag'] = "true";
             while($row = $result->fetch_assoc()) {
-                echo "<pre>";
+                // echo "<pre>";
                 print_r($row);
                 // var_dump($row['point']);
                 // echo intval($row['point']);
@@ -35,7 +34,7 @@
     $result = $conn->query($sql);
 
 ?>
-<div class="container">
+<div class="container-fluid">
     <?php 
         if(isset($last_inserted_user_id)){
             unset($_SESSION['last_inserted_user_id']);
