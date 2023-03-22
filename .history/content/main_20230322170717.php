@@ -212,7 +212,7 @@
             ?>
                 <form method="post" action="content/my_process.php">
                     <div class="mb-3">
-                        <div id="emailHelp" class="form-text mb-3" style="font-family: cursive; color: red; font-weight: bolder;">First Enter Your Full Name Correctly.</div>
+                        <div id="emailHelp" class="form-text mb-3" style="font-family: cursive; color: red; font-weight: 50px">First Enter Your Full Name Correctly.</div>
                         <label for="exampleInputEmail1" class="form-label" style="font-family: cursive;">Full Name</label>
                         <input type="text" class="form-control" name="name">
                     </div>
