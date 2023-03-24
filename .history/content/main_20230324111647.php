@@ -48,101 +48,101 @@
                                     if($row['option'] == "agree")
                                     {
                                         if($x == 1){
-                                            $honesty = $honesty + 1;
+                                            ++$honesty;
                                         }elseif($x == 2){
-                                            $ownership = $ownership + 1;
+                                            ++$ownership;
                                         }elseif($x == 3){
-                                            $teamwork = $teamwork + 1;
+                                            ++$teamwork;
                                         }elseif($x == 4){
-                                            $customer_experience = $customer_experience + 1;
+                                            ++$customer_experience;
                                         }elseif($x == 5){
-                                            $learn_and_apply = $learn_and_apply + 1;
+                                            ++$learn_and_apply;
                                         }
                                     }elseif($row['option'] == "strongly_agree"){
                                         if($x == 1){
-                                            $honesty = $honesty + 2;
+                                            $honesty += 2;
                                         }elseif($x == 2){
-                                            $ownership = $ownership + 2;
+                                            $ownership += 2;
                                         }elseif($x == 3){
-                                            $teamwork = $teamwork + 2;
+                                            $teamwork += 2;
                                         }elseif($x == 4){
-                                            $customer_experience = $customer_experience + 2;
+                                            $customer_experience += 2;
                                         }elseif($x == 5){
-                                            $learn_and_apply = $learn_and_apply + 2;
+                                            $learn_and_apply += 2;
                                         }
                                     }elseif($row['option'] == "disagree"){
                                         if($x == 1){
-                                            $honesty = $honesty - 1;
+                                            --$honesty;
                                         }elseif($x == 2){
-                                            $ownership = $ownership - 1;
+                                            --$ownership;
                                         }elseif($x == 3){
-                                            $teamwork = $teamwork - 1;
+                                            --$teamwork;
                                         }elseif($x == 4){
-                                            $customer_experience = $customer_experience - 1;
+                                            --$customer_experience;
                                         }elseif($x == 5){
-                                            $learn_and_apply = $learn_and_apply - 1;
+                                            --$learn_and_apply;
                                         }
                                     }elseif($row['option'] == "strongly_disagree"){
                                         if($x == 1){
-                                            $honesty = $honesty - 2;
+                                            $honesty -= 2;
                                         }elseif($x == 2){
-                                            $ownership = $ownership - 2;
+                                            $ownership -= 2;
                                         }elseif($x == 3){
-                                            $teamwork = $teamwork - 2;
+                                            $teamwork -= 2;
                                         }elseif($x == 4){
-                                            $customer_experience = $customer_experience - 2;
+                                            $customer_experience -= 2;
                                         }elseif($x == 5){
-                                            $learn_and_apply = $learn_and_apply - 2;
+                                            $learn_and_apply -= 2;
                                         }
                                     }
                                 }else{
                                     if($row['option'] == "agree"){
                                         if($x == 1){
-                                            $honesty = $honesty - 1;
+                                            --$honesty;
                                         }elseif($x == 2){
-                                            $ownership = $ownership - 1;
+                                            --$ownership;
                                         }elseif($x == 3){
-                                            $teamwork = $teamwork - 1;
+                                            --$teamwork;
                                         }elseif($x == 4){
-                                            $customer_experience = $customer_experience - 1;
+                                            --$customer_experience;
                                         }elseif($x == 5){
-                                            $learn_and_apply = $learn_and_apply - 1;
+                                            --$learn_and_apply;
                                         }
                                     }elseif($row['option'] == "strongly_agree"){
                                         if($x == 1){
-                                            $honesty = $honesty - 2;
+                                            $honesty -= 2;
                                         }elseif($x == 2){
-                                            $ownership = $ownership - 2;
+                                            $ownership -= 2;
                                         }elseif($x == 3){
-                                            $teamwork = $teamwork - 2;
+                                            $teamwork -= 2;
                                         }elseif($x == 4){
-                                            $customer_experience = $customer_experience - 2;
+                                            $customer_experience -= 2;
                                         }elseif($x == 5){
-                                            $learn_and_apply = $learn_and_apply - 2;
+                                            $learn_and_apply -= 2;
                                         }
                                     }elseif($row['option'] == "disagree"){
                                         if($x == 1){
-                                            $honesty = $honesty + 1;
+                                            ++$honesty;
                                         }elseif($x == 2){
-                                            $ownership = $ownership + 1;
+                                            ++$ownership;
                                         }elseif($x == 3){
-                                            $teamwork = $teamwork + 1;
+                                            ++$teamwork;
                                         }elseif($x == 4){
-                                            $customer_experience = $customer_experience + 1;
+                                            ++$customer_experience;
                                         }elseif($x == 5){
-                                            $learn_and_apply = $learn_and_apply + 1;
+                                            ++$learn_and_apply;
                                         }
                                     }elseif($row['option'] == "strongly_disagree"){
                                         if($x == 1){
-                                            $honesty = $honesty + 2;
+                                            $honesty += 2;
                                         }elseif($x == 2){
-                                            $ownership = $ownership + 2;
+                                            $ownership += 2;
                                         }elseif($x == 3){
-                                            $teamwork = $teamwork + 2;
+                                            $teamwork += 2;
                                         }elseif($x == 4){
-                                            $customer_experience = $customer_experience + 2;
+                                            $customer_experience += 2;
                                         }elseif($x == 5){
-                                            $learn_and_apply = $learn_and_apply + 2;
+                                            $learn_and_apply += 2;
                                         }
                                     }
                                 }
@@ -157,35 +157,12 @@
                     // echo "<br />";
                 }
             }
-            if($honesty < 0){
-                $p_honesty = 0;
-            }else{
-                $p_honesty = $honesty/14*100;
-            }
 
-            if($ownership < 0){
-                $p_ownership = 0;
-            }else{
-                $p_ownership = $ownership/38*100;
-            }
-
-            if($teamwork < 0){
-                $p_teamwork = 0;
-            }else{
-                $p_teamwork = $teamwork/46*100;
-            }
-
-            if($customer_experience < 0){
-                $p_customer_experience = 0;
-            }else{
-                $p_customer_experience = $customer_experience/20*100;
-            }
-
-            if($learn_and_apply < 0){
-                $p_learn_and_apply = 0;
-            }else{
-                $p_learn_and_apply = $learn_and_apply/18*100;
-            }
+            $p_honesty = $honesty/28*100;
+            $p_ownership = $ownership/38*100;
+            $p_teamwork = $teamwork/46*100;
+            $p_customer_experience = $customer_experience/20*100;
+            $p_learn_and_apply = $learn_and_apply/18*100;
 
             $query = "INSERT INTO final_result (user_id, honesty, ownership, teamwork, customer_experience, learn_and_apply) VALUES ('$last_inserted_user_id', '$p_honesty', '$p_ownership', '$p_teamwork', '$p_customer_experience', '$p_learn_and_apply')";
             $result = mysqli_query($conn, $query);

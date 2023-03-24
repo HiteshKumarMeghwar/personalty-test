@@ -158,34 +158,16 @@
                 }
             }
             if($honesty < 0){
-                $p_honesty = 0;
+                $honesty2 = $honesty - (-14);
+                $p_honesty = $honesty2/14*100;
             }else{
                 $p_honesty = $honesty/14*100;
             }
 
-            if($ownership < 0){
-                $p_ownership = 0;
-            }else{
-                $p_ownership = $ownership/38*100;
-            }
-
-            if($teamwork < 0){
-                $p_teamwork = 0;
-            }else{
-                $p_teamwork = $teamwork/46*100;
-            }
-
-            if($customer_experience < 0){
-                $p_customer_experience = 0;
-            }else{
-                $p_customer_experience = $customer_experience/20*100;
-            }
-
-            if($learn_and_apply < 0){
-                $p_learn_and_apply = 0;
-            }else{
-                $p_learn_and_apply = $learn_and_apply/18*100;
-            }
+            $p_ownership = $ownership/38*100;
+            $p_teamwork = $teamwork/46*100;
+            $p_customer_experience = $customer_experience/20*100;
+            $p_learn_and_apply = $learn_and_apply/18*100;
 
             $query = "INSERT INTO final_result (user_id, honesty, ownership, teamwork, customer_experience, learn_and_apply) VALUES ('$last_inserted_user_id', '$p_honesty', '$p_ownership', '$p_teamwork', '$p_customer_experience', '$p_learn_and_apply')";
             $result = mysqli_query($conn, $query);

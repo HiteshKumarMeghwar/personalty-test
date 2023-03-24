@@ -18,7 +18,7 @@
                 echo "Error: " . mysqli_error($conn);
             }
 
-            for($i = 1; $i <= 7; $i++){
+            for($i = 1; $i <= 50; $i++){
                 $question_id = $_POST["test_id-".$i];
                 if(!isset($_POST["option-".$question_id]) ){
                     $query = "DELETE FROM users WHERE id = $last_inserted_id";
