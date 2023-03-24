@@ -5,66 +5,10 @@
     if(isset($_SESSION['last_inserted_user_id'])){
         $last_inserted_user_id = $_SESSION['last_inserted_user_id'];
 
-        // query for count how many total core values ...............................
+        // query for count how many core values total ...............................
         $query_core_values = "SELECT * FROM core_values";
         $result_core_values = mysqli_query($conn, $query_core_values);
         $total_core_values = mysqli_num_rows($result_core_values);
-
-        // query for count how many total questions ...............................
-        $query_questions = "SELECT * FROM questions";
-        $result_questions = mysqli_query($conn, $query_questions);
-        $total_questions = mysqli_num_rows($result_questions);
-
-        // query for count how many total points of honesty ...............................
-        $query_point_honesty = 
-        "SELECT *
-            FROM questions 
-            INNER JOIN questions_core_values ON questions.id = questions_core_values.question_id 
-            INNER JOIN core_values ON questions_core_values.core_value_id = core_values.id
-            WHERE core_value_id = 1";
-        $result_point_honesty = mysqli_query($conn, $query_point_honesty);
-        $honesty_points = mysqli_num_rows($result_point_honesty);
-
-        // query for count how many total points of ownership ...............................
-        $query_point_ownership = 
-        "SELECT *
-            FROM questions 
-            INNER JOIN questions_core_values ON questions.id = questions_core_values.question_id 
-            INNER JOIN core_values ON questions_core_values.core_value_id = core_values.id
-            WHERE core_value_id = 2";
-        $result_point_ownership = mysqli_query($conn, $query_point_ownership);
-        $ownership_points = mysqli_num_rows($result_point_ownership);
-
-        // query for count how many total points of teamwork ...............................
-        $query_point_teamwork = 
-        "SELECT *
-            FROM questions 
-            INNER JOIN questions_core_values ON questions.id = questions_core_values.question_id 
-            INNER JOIN core_values ON questions_core_values.core_value_id = core_values.id
-            WHERE core_value_id = 3";
-        $result_point_teamwork = mysqli_query($conn, $query_point_teamwork);
-        $teamwork_points = mysqli_num_rows($result_point_teamwork);
-
-        // query for count how many total points of customer_experience ...............................
-        $query_point_customer_experience = 
-        "SELECT *
-            FROM questions 
-            INNER JOIN questions_core_values ON questions.id = questions_core_values.question_id 
-            INNER JOIN core_values ON questions_core_values.core_value_id = core_values.id
-            WHERE core_value_id = 4";
-        $result_point_customer_experience = mysqli_query($conn, $query_point_customer_experience);
-        $customer_experience_points = mysqli_num_rows($result_point_customer_experience);
-
-        // query for count how many total points of learn_apply ...............................
-        $query_point_learn_apply = 
-        "SELECT *
-            FROM questions 
-            INNER JOIN questions_core_values ON questions.id = questions_core_values.question_id 
-            INNER JOIN core_values ON questions_core_values.core_value_id = core_values.id
-            WHERE core_value_id = 5";
-        $result_point_learn_apply = mysqli_query($conn, $query_point_learn_apply);
-        $learn_apply_points = mysqli_num_rows($result_point_learn_apply);
-        
 
         // query to retrieve student and their courses
         $sql = "SELECT *
@@ -83,13 +27,13 @@
         $teamwork = 0;
         $customer_experience = 0;
         $learn_and_apply = 0;
-        
+
         if ($result->num_rows > 0) {
             // this loop running on coming data from database ..............................
             while($row = $result->fetch_assoc()) 
             {
                 // this loop running on 50 questions .................................
-                for($i = 1; $i <= $total_questions; $i++)
+                for($i = 1; $i <= 50; $i++)
                 {     
                     if($row['question_id'] == $i)
                     {
@@ -212,41 +156,11 @@
                 }
             }
 
-            if($honesty < 0){
-                $p_honesty = 0;
-            }else{
-                $p_honesty = $honesty/($honesty_points * 2) * 100;
-            }
-
-            if($ownership < 0){
-                $p_ownership = 0;
-            }else{
-                $p_ownership = $ownership/($ownership_points * 2) * 100;
-            }
-
-            if($teamwork < 0){
-                $p_teamwork = 0;
-            }else{
-                $p_teamwork = $teamwork/($teamwork_points * 2) * 100;
-            }
-
-            if($customer_experience < 0){
-                $p_customer_experience = 0;
-            }else{
-                $p_customer_experience = $customer_experience/($customer_experience_points * 2) * 100;
-            }
-
-            if($learn_and_apply < 0){
-                $p_learn_and_apply = 0;
-            }else{
-                $p_learn_and_apply = $learn_and_apply/($learn_apply_points * 2) * 100;
-            }
-
-            //$p_honesty = ($honesty + $honesty_points)/($honesty_points * 2) * 100;
-            //$p_ownership = ($ownership + $ownership_points)/($ownership_points * 2) * 100;
-            //$p_teamwork = ($teamwork + $teamwork_points)/($teamwork_points * 2) * 100;
-            //$p_customer_experience = ($customer_experience + $customer_experience_points)/($customer_experience_points * 2) * 100;
-            //$p_learn_and_apply = ($learn_and_apply + $learn_apply_points)/($learn_apply_points * 2) * 100;
+            $p_honesty = ($honesty + 14)/28*100;
+            $p_ownership = ($ownership + 19)/38*100;
+            $p_teamwork = ($teamwork + 23)/46*100;
+            $p_customer_experience = ($customer_experience + 10)/20*100;
+            $p_learn_and_apply = ($learn_and_apply + 9)/18*100;
             
 
             $query = "INSERT INTO final_result (user_id, honesty, ownership, teamwork, customer_experience, learn_and_apply) VALUES ('$last_inserted_user_id', '$p_honesty', '$p_ownership', '$p_teamwork', '$p_customer_experience', '$p_learn_and_apply')";

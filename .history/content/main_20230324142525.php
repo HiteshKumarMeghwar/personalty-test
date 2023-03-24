@@ -297,9 +297,9 @@
                     </div>
                 </div>
             <?php
-            unset($_SESSION['last_inserted_user_id']);
-            session_unset(); // Unset all the session variables
-            session_destroy(); // Destroy the session data from the server and invalidate the session ID
+            // unset($_SESSION['last_inserted_user_id']);
+            // session_unset(); // Unset all the session variables
+            // session_destroy(); // Destroy the session data from the server and invalidate the session ID
         }else{
             ?>
                 <form method="post" action="content/my_process.php">

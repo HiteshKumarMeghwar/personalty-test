@@ -18,12 +18,7 @@
                 echo "Error: " . mysqli_error($conn);
             }
 
-            // query for count how many total questions ...............................
-            $query_questions = "SELECT * FROM questions";
-            $result_questions = mysqli_query($conn, $query_questions);
-            $total_questions = mysqli_num_rows($result_questions);
-
-            for($i = 1; $i <= $total_questions; $i++){
+            for($i = 1; $i <= 50; $i++){
                 $question_id = $_POST["test_id-".$i];
                 if(!isset($_POST["option-".$question_id]) ){
                     $query = "DELETE FROM users WHERE id = $last_inserted_id";

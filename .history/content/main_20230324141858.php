@@ -212,41 +212,20 @@
                 }
             }
 
-            if($honesty < 0){
-                $p_honesty = 0;
-            }else{
-                $p_honesty = $honesty/($honesty_points * 2) * 100;
-            }
+            echo $ownership_points;
+            
 
-            if($ownership < 0){
-                $p_ownership = 0;
-            }else{
-                $p_ownership = $ownership/($ownership_points * 2) * 100;
-            }
-
-            if($teamwork < 0){
-                $p_teamwork = 0;
-            }else{
-                $p_teamwork = $teamwork/($teamwork_points * 2) * 100;
-            }
-
-            if($customer_experience < 0){
-                $p_customer_experience = 0;
-            }else{
-                $p_customer_experience = $customer_experience/($customer_experience_points * 2) * 100;
-            }
-
-            if($learn_and_apply < 0){
-                $p_learn_and_apply = 0;
-            }else{
-                $p_learn_and_apply = $learn_and_apply/($learn_apply_points * 2) * 100;
-            }
-
-            //$p_honesty = ($honesty + $honesty_points)/($honesty_points * 2) * 100;
-            //$p_ownership = ($ownership + $ownership_points)/($ownership_points * 2) * 100;
-            //$p_teamwork = ($teamwork + $teamwork_points)/($teamwork_points * 2) * 100;
-            //$p_customer_experience = ($customer_experience + $customer_experience_points)/($customer_experience_points * 2) * 100;
-            //$p_learn_and_apply = ($learn_and_apply + $learn_apply_points)/($learn_apply_points * 2) * 100;
+            $p_honesty = ($honesty + $honesty_points)/($honesty_points * 2) * 100;
+            $p_ownership = ($ownership + $ownership_points)/($ownership_points * 2) * 100;
+            $p_teamwork = ($teamwork + $teamwork_points)/($teamwork_points * 2) * 100;
+            $p_customer_experience = ($customer_experience + $customer_experience_points)/($customer_experience_points * 2) * 100;
+            $p_learn_and_apply = ($learn_and_apply + $learn_apply_points)/($learn_apply_points * 2) * 100;
+            
+            // $p_honesty = ($honesty + 7)/14 * 100;
+            // $p_ownership = ($ownership + 19)/38 * 100;
+            // $p_teamwork = ($teamwork + 23)/46 * 100;
+            // $p_customer_experience = ($customer_experience + 10)/20 * 100;
+            // $p_learn_and_apply = ($learn_and_apply + 9)/18 * 100;
             
 
             $query = "INSERT INTO final_result (user_id, honesty, ownership, teamwork, customer_experience, learn_and_apply) VALUES ('$last_inserted_user_id', '$p_honesty', '$p_ownership', '$p_teamwork', '$p_customer_experience', '$p_learn_and_apply')";
@@ -297,9 +276,9 @@
                     </div>
                 </div>
             <?php
-            unset($_SESSION['last_inserted_user_id']);
-            session_unset(); // Unset all the session variables
-            session_destroy(); // Destroy the session data from the server and invalidate the session ID
+            // unset($_SESSION['last_inserted_user_id']);
+            // session_unset(); // Unset all the session variables
+            // session_destroy(); // Destroy the session data from the server and invalidate the session ID
         }else{
             ?>
                 <form method="post" action="content/my_process.php">
