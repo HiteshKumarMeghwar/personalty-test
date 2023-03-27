@@ -283,12 +283,11 @@
                         <div class="row align-items-center">
                             <div class="col-12 col-md-8"> 
                                 <div class="text-secondary-d1 text-120" style="font-family: cursive; font-weight: bolder;">
-                                    <!-- 1  Honesty => <?php //echo $_SESSION['honesty']."%"."<br />" ?>
-                                    2  Ownership => <?php //echo $_SESSION['ownership']."%"."<br />" ?>
-                                    3  Teamwork => <?php //echo $_SESSION['teamwork']."%"."<br />" ?>
-                                    4  Customer Experience => <?php //echo $_SESSION['customer_experience']."%"."<br />" ?>
-                                    5  Learn and apply => <?php //echo $_SESSION['learn_and_apply']."%" ?> -->
-                                    Thanks You
+                                    1  Honesty => <?php echo $_SESSION['honesty']."%"."<br />" ?>
+                                    2  Ownership => <?php echo $_SESSION['ownership']."%"."<br />" ?>
+                                    3  Teamwork => <?php echo $_SESSION['teamwork']."%"."<br />" ?>
+                                    4  Customer Experience => <?php echo $_SESSION['customer_experience']."%"."<br />" ?>
+                                    5  Learn and apply => <?php echo $_SESSION['learn_and_apply']."%" ?>
                                 </div>
                                 <div class="col-12 col-md-4 text-center mb-3">
                                     <a href="index.php" class="f-n-hover btn btn-warning btn-raised px-4 py-25 w-75 text-600">Return to Test</a>
