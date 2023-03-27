@@ -55,9 +55,9 @@
                     $query = "INSERT INTO questions_options (question_id, option_id, user_id) VALUES ('$question_id', '$option_id', '$last_inserted_id')";
                     // Execute query
                     $result = mysqli_query($conn, $query);
-                    if($result){
+                    /* if($result){
                         header('location:../index.php');
-                    }
+                    } */
                 }
             
             }
