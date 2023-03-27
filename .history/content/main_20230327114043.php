@@ -203,6 +203,12 @@
                             }
                         }
                     }
+                    // echo "<pre>";
+                    // print_r($row);
+                    // var_dump($row['point']);
+                    // echo intval($row['point']);
+                    // if($row['question_id'])
+                    // echo "<br />";
                 }
             }
 
@@ -257,7 +263,7 @@
 
         }else{
             unset($_SESSION['last_inserted_user_id']);
-            header('location:index.php?msg=Something wrong, please restart the test');
+            header('location:index.php');
         }
     }
 ?>

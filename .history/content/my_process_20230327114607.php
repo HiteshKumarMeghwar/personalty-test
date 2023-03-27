@@ -14,7 +14,6 @@
             $result = mysqli_query($conn, $query);
             if($result){
                 $last_inserted_id = mysqli_insert_id($conn);
-                $_SESSION['last_inserted_user_id'] = $last_inserted_id;
             }else{
                 echo "Error: " . mysqli_error($conn);
             }
@@ -29,9 +28,8 @@
                 if(!isset($_POST["option-".$question_id]) ){
                     $query = "DELETE FROM users WHERE id = $last_inserted_id";
                     mysqli_query($conn, $query);
+                    $message = "Please Check All Test Options";
                     unset($_SESSION['last_inserted_user_id']);
-                    session_unset(); // Unset all the session variables
-                    session_destroy(); // Destroy the session data from the server and invalidate the session ID
                     header('location:../index.php?msg=Please attend all questions');
                 }else{
                     $question_option = $_POST["option-".$question_id];
@@ -60,6 +58,13 @@
             }
         }else{
             header('location:../index.php?msg=Your Name is Required');
+        }
+        // Check if query executed successfully
+        if($result){
+            $_SESSION['last_inserted_user_id'] = $last_inserted_id;
+            header('location:../index.php?msg=Something is wrong, please restart the test');
+        } else {
+            echo "Error: " . mysqli_error($conn);
         }
     }
 ?>

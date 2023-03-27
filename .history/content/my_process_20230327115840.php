@@ -30,8 +30,6 @@
                     $query = "DELETE FROM users WHERE id = $last_inserted_id";
                     mysqli_query($conn, $query);
                     unset($_SESSION['last_inserted_user_id']);
-                    session_unset(); // Unset all the session variables
-                    session_destroy(); // Destroy the session data from the server and invalidate the session ID
                     header('location:../index.php?msg=Please attend all questions');
                 }else{
                     $question_option = $_POST["option-".$question_id];

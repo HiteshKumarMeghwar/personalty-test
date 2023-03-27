@@ -257,7 +257,7 @@
 
         }else{
             unset($_SESSION['last_inserted_user_id']);
-            header('location:index.php?msg=Something wrong, please restart the test');
+            header('location:index.php?msg=Something wrong, please restart the testyyyyyyy');
         }
     }
 ?>
