@@ -70,7 +70,7 @@
         $sql = "SELECT *
             FROM questions 
             INNER JOIN questions_options ON questions.id = questions_options.question_id 
-            INNER JOIN options ON questions_options.option_id = options.id
+            INNER JOIN OPTIONS ON questions_options.option_id = options.id
             INNER JOIN questions_core_values ON questions.id = questions_core_values.question_id 
             INNER JOIN core_values ON questions_core_values.core_value_id = core_values.id
             WHERE questions_options.user_id=".$last_inserted_user_id;
