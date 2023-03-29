@@ -338,7 +338,7 @@
                                             <!-- Premium Plan -->
                                             <div class="row align-items-center">
                                                 <div class="col-12 col-md-8"> 
-                                                    <div class="text-secondary-d1 text-120 m-3" style="font-family: cursive; font-weight: bolder;">
+                                                    <div class="text-secondary-d1 text-120" style="font-family: cursive; font-weight: bolder;">
                                                         Q.<?php echo $count ?> -> <?php echo $_SESSION['result'.$count]['question'] ?>
                                                         <input type="hidden" name="test_id-<?php echo $count ?>" value="<?php echo $question_id ?>" />
                                                         <?php //echo $row['id'] ?>

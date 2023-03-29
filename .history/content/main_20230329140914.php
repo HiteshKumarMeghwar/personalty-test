@@ -321,7 +321,7 @@
             ?>
                 <form method="post" action="content/my_process.php">
                     <div class="mb-3">
-                        <div id="emailHelp" class="form-text mb-3 text-center" style="font-family: cursive; color: red; font-weight: bolder; font-size: 15px">First Enter Your Full Name Correctly.</div>
+                        <div id="emailHelp" class="form-text mb-3 text-center" style="font-family: cursive; color: red; font-weight: bolder; font-size: 15  px">First Enter Your Full Name Correctly.</div>
                         <label for="exampleInputEmail1" class="form-label" style="font-family: cursive;"><span style="font-family: cursive; color: red;">* </span>Full Name</label>
                         <input type="text" class="form-control" name="name" value="<?php echo $_SESSION['session_name'] ?? '' ?>">
                     </div>
@@ -334,11 +334,11 @@
                                 // Do something with the row data
                                 ?>
                                     <div class="mt-5">
-                                        <div class="d-style border-2 bgc-white btn-outline-purple btn-h-outline-purple btn-a-outline-purple w-100 my-2 py-3 shadow-sm">
+                                        <div class="d-style ml-2 border-2 bgc-white btn-outline-purple btn-h-outline-purple btn-a-outline-purple w-100 my-2 py-3 shadow-sm">
                                             <!-- Premium Plan -->
                                             <div class="row align-items-center">
                                                 <div class="col-12 col-md-8"> 
-                                                    <div class="text-secondary-d1 text-120 m-3" style="font-family: cursive; font-weight: bolder;">
+                                                    <div class="text-secondary-d1 text-120" style="font-family: cursive; font-weight: bolder;">
                                                         Q.<?php echo $count ?> -> <?php echo $_SESSION['result'.$count]['question'] ?>
                                                         <input type="hidden" name="test_id-<?php echo $count ?>" value="<?php echo $question_id ?>" />
                                                         <?php //echo $row['id'] ?>
