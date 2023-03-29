@@ -6,11 +6,6 @@
     require_once '../database/connection.php';
 
     if(isset($_POST['submit'])){
-        // query for count how many total questions ...............................
-        $query_questions = "SELECT * FROM questions";
-        $result_questions = mysqli_query($conn, $query_questions);
-        $total_questions = mysqli_num_rows($result_questions);
-
         if(isset($_POST['name']) && $_POST['name'] != "")
         {
             $name = $_POST['name'];
@@ -24,6 +19,11 @@
             }else{
                 echo "Error: " . mysqli_error($conn);
             }
+
+            // query for count how many total questions ...............................
+            $query_questions = "SELECT * FROM questions";
+            $result_questions = mysqli_query($conn, $query_questions);
+            $total_questions = mysqli_num_rows($result_questions);
 
             for($i = 1; $i <= $total_questions; $i++){
                 $question_id = $_POST["test_id-".$i];
@@ -69,12 +69,6 @@
             
             }
         }else{
-            for($i = 1; $i <= $total_questions; $i++){
-                $question_id = $_POST["test_id-".$i];
-                if(isset($_POST["option-".$question_id])){
-                    $_SESSION['option-'.$question_id] = $_POST["option-".$question_id];
-                }
-            }
             $_SESSION['flag'] = true;
             header('location:../index.php?msg=Your Name is Required');
         }

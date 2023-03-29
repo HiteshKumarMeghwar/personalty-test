@@ -276,9 +276,6 @@
 <div class="container">
     <?php 
         // $_SESSION['flag'] = false;
-        // unset($_SESSION['session_name']);
-        // session_unset(); // Unset all the session variables
-        // session_destroy(); // Destroy the session data from the server and invalidate the session ID
         if(isset($_REQUEST['msg'])){
             ?>
                 <script>
@@ -309,19 +306,14 @@
                     </div>
                 </div>
             <?php
-            unset($_SESSION['session_name']);
             unset($_SESSION['last_inserted_user_id']);
             session_unset(); // Unset all the session variables
             session_destroy(); // Destroy the session data from the server and invalidate the session ID
         }else{
-            if(!isset($_SESSION['flag'])){
-                $_SESSION['flag'] = false;
-                header('location:index.php');
-            }
             ?>
                 <form method="post" action="content/my_process.php">
                     <div class="mb-3">
-                        <div id="emailHelp" class="form-text mb-3 text-center" style="font-family: cursive; color: red; font-weight: bolder; font-size: 20px">First Enter Your Full Name Correctly.</div>
+                        <div id="emailHelp" class="form-text mb-3" style="font-family: cursive; color: red; font-weight: bolder;">First Enter Your Full Name Correctly.</div>
                         <label for="exampleInputEmail1" class="form-label" style="font-family: cursive;"><span style="font-family: cursive; color: red;">* </span>Full Name</label>
                         <input type="text" class="form-control" name="name" value="<?php echo $_SESSION['session_name'] ?? '' ?>">
                     </div>
@@ -330,7 +322,6 @@
                         if (isset($_SESSION['result1'])) {
                             $count = 1;
                             while (isset($_SESSION['result'.$count]) && $_SESSION['result'.$count]) {
-                                $question_id = $_SESSION['result'.$count]['id'];
                                 // Do something with the row data
                                 ?>
                                     <div class="mt-5">
@@ -340,7 +331,7 @@
                                                 <div class="col-12 col-md-8"> 
                                                     <div class="text-secondary-d1 text-120" style="font-family: cursive; font-weight: bolder;">
                                                         Q.<?php echo $count ?> -> <?php echo $_SESSION['result'.$count]['question'] ?>
-                                                        <input type="hidden" name="test_id-<?php echo $count ?>" value="<?php echo $question_id ?>" />
+                                                        <input type="hidden" name="test_id-<?php echo $count ?>" value="<?php echo $_SESSION['result'.$count]['id'] ?>" />
                                                         <?php //echo $row['id'] ?>
                                                     </div>
                                                 </div>
@@ -350,45 +341,35 @@
                                                         <span class="text-110" style="font-family: cursive;">
                                                             Strongly Agree
                                                         </span>
-                                                        <input type="radio" name="option-<?php echo $question_id ?>" value="strongly_agree" 
-                                                            <?php echo isset($_SESSION['option-'.$question_id]) && $_SESSION['option-'.$question_id] == "strongly_agree" ? "checked" : "" ?>
-                                                        />
+                                                        <input type="radio" name="option-<?php echo $_SESSION['result'.$count]['id'] ?>" value="strongly_agree" />
                                                     </li>
                                                     <li>
                                                         <!-- <i class="fa fa-check text-success-m2 text-110 mr-2 mt-1"></i> -->
                                                         <span>
                                                             <span class="t10" style="font-family: cursive;" >Agree</span>
                                                         </span>
-                                                        <input type="radio" name="option-<?php echo $question_id ?>" value="agree" 
-                                                            <?php echo isset($_SESSION['option-'.$question_id]) && $_SESSION['option-'.$question_id] == "agree" ? "checked" : "" ?>
-                                                        />
+                                                        <input type="radio" name="option-<?php echo $_SESSION['result'.$count]['id'] ?>" value="agree" />
                                                     </li>
                                                     <li class="mt-25">
                                                         <!-- <i class="fa fa-check text-success-m2 text-110 mr-2 mt-1"></i> -->
                                                         <span class="text-110" style="font-family: cursive;">
                                                             Neither agree nor disagree
                                                         </span>
-                                                        <input type="radio" name="option-<?php echo $question_id ?>" value="neither" 
-                                                            <?php echo isset($_SESSION['option-'.$question_id]) && $_SESSION['option-'.$question_id] == "neither" ? "checked" : "" ?>
-                                                        />
+                                                        <input type="radio" name="option-<?php echo $_SESSION['result'.$count]['id'] ?>" value="neither" />
                                                     </li>
                                                     <li class="mt-25">
                                                         <!-- <i class="fa fa-check text-success-m2 text-110 mr-2 mt-1"></i> -->
                                                         <span class="text-110" style="font-family: cursive;">
                                                             Disagree
                                                         </span>
-                                                        <input type="radio" name="option-<?php echo $question_id ?>" value="disagree" 
-                                                            <?php echo isset($_SESSION['option-'.$question_id]) && $_SESSION['option-'.$question_id] == "disagree" ? "checked" : "" ?>
-                                                        />
+                                                        <input type="radio" name="option-<?php echo $_SESSION['result'.$count]['id'] ?>" value="disagree" />
                                                     </li>
                                                     <li class="mt-25">
                                                         <!-- <i class="fa fa-check text-success-m2 text-110 mr-2 mt-1"></i> -->
                                                         <span class="text-110" style="font-family: cursive;">
                                                             Strongly disagree
                                                         </span>
-                                                        <input type="radio" name="option-<?php echo $question_id ?>" value="strongly_disagree" 
-                                                            <?php echo isset($_SESSION['option-'.$question_id]) && $_SESSION['option-'.$question_id] == "strongly_disagree" ? "checked" : "" ?>
-                                                        />
+                                                        <input type="radio" name="option-<?php echo $_SESSION['result'.$count]['id'] ?>" value="strongly_disagree" />
                                                     </li>
                                                     
                                                 </ul>

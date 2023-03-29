@@ -277,8 +277,6 @@
     <?php 
         // $_SESSION['flag'] = false;
         // unset($_SESSION['session_name']);
-        // session_unset(); // Unset all the session variables
-        // session_destroy(); // Destroy the session data from the server and invalidate the session ID
         if(isset($_REQUEST['msg'])){
             ?>
                 <script>
@@ -310,18 +308,15 @@
                 </div>
             <?php
             unset($_SESSION['session_name']);
+            $_SESSION['flag'] = false;
             unset($_SESSION['last_inserted_user_id']);
-            session_unset(); // Unset all the session variables
-            session_destroy(); // Destroy the session data from the server and invalidate the session ID
+            // session_unset(); // Unset all the session variables
+            // session_destroy(); // Destroy the session data from the server and invalidate the session ID
         }else{
-            if(!isset($_SESSION['flag'])){
-                $_SESSION['flag'] = false;
-                header('location:index.php');
-            }
             ?>
                 <form method="post" action="content/my_process.php">
                     <div class="mb-3">
-                        <div id="emailHelp" class="form-text mb-3 text-center" style="font-family: cursive; color: red; font-weight: bolder; font-size: 20px">First Enter Your Full Name Correctly.</div>
+                        <div id="emailHelp" class="form-text mb-3" style="font-family: cursive; color: red; font-weight: bolder;">First Enter Your Full Name Correctly.</div>
                         <label for="exampleInputEmail1" class="form-label" style="font-family: cursive;"><span style="font-family: cursive; color: red;">* </span>Full Name</label>
                         <input type="text" class="form-control" name="name" value="<?php echo $_SESSION['session_name'] ?? '' ?>">
                     </div>
@@ -351,7 +346,7 @@
                                                             Strongly Agree
                                                         </span>
                                                         <input type="radio" name="option-<?php echo $question_id ?>" value="strongly_agree" 
-                                                            <?php echo isset($_SESSION['option-'.$question_id]) && $_SESSION['option-'.$question_id] == "strongly_agree" ? "checked" : "" ?>
+                                                            <?php echo isset($_SESSION['option-'.]) && $_SESSION['option-'.] == "strongly_agree" ? "checked" : "" ?>
                                                         />
                                                     </li>
                                                     <li>
@@ -360,7 +355,7 @@
                                                             <span class="t10" style="font-family: cursive;" >Agree</span>
                                                         </span>
                                                         <input type="radio" name="option-<?php echo $question_id ?>" value="agree" 
-                                                            <?php echo isset($_SESSION['option-'.$question_id]) && $_SESSION['option-'.$question_id] == "agree" ? "checked" : "" ?>
+                                                            <?php echo isset($_SESSION['option-'.]) && $_SESSION['option-'.] == "agree" ? "checked" : "" ?>
                                                         />
                                                     </li>
                                                     <li class="mt-25">
@@ -369,7 +364,7 @@
                                                             Neither agree nor disagree
                                                         </span>
                                                         <input type="radio" name="option-<?php echo $question_id ?>" value="neither" 
-                                                            <?php echo isset($_SESSION['option-'.$question_id]) && $_SESSION['option-'.$question_id] == "neither" ? "checked" : "" ?>
+                                                            <?php echo isset($_SESSION['option-'.]) && $_SESSION['option-'.] == "neither" ? "checked" : "" ?>
                                                         />
                                                     </li>
                                                     <li class="mt-25">
@@ -378,7 +373,7 @@
                                                             Disagree
                                                         </span>
                                                         <input type="radio" name="option-<?php echo $question_id ?>" value="disagree" 
-                                                            <?php echo isset($_SESSION['option-'.$question_id]) && $_SESSION['option-'.$question_id] == "disagree" ? "checked" : "" ?>
+                                                            <?php echo isset($_SESSION['option-'.]) && $_SESSION['option-'.] == "disagree" ? "checked" : "" ?>
                                                         />
                                                     </li>
                                                     <li class="mt-25">
@@ -387,7 +382,7 @@
                                                             Strongly disagree
                                                         </span>
                                                         <input type="radio" name="option-<?php echo $question_id ?>" value="strongly_disagree" 
-                                                            <?php echo isset($_SESSION['option-'.$question_id]) && $_SESSION['option-'.$question_id] == "strongly_disagree" ? "checked" : "" ?>
+                                                            <?php echo isset($_SESSION['option-'.]) && $_SESSION['option-'.] == "strongly_disagree" ? "checked" : "" ?>
                                                         />
                                                     </li>
                                                     

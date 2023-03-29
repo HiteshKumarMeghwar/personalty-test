@@ -70,7 +70,6 @@
             }
         }else{
             for($i = 1; $i <= $total_questions; $i++){
-                $question_id = $_POST["test_id-".$i];
                 if(isset($_POST["option-".$question_id])){
                     $_SESSION['option-'.$question_id] = $_POST["option-".$question_id];
                 }

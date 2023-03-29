@@ -6,11 +6,6 @@
     require_once '../database/connection.php';
 
     if(isset($_POST['submit'])){
-        // query for count how many total questions ...............................
-        $query_questions = "SELECT * FROM questions";
-        $result_questions = mysqli_query($conn, $query_questions);
-        $total_questions = mysqli_num_rows($result_questions);
-
         if(isset($_POST['name']) && $_POST['name'] != "")
         {
             $name = $_POST['name'];
@@ -25,22 +20,25 @@
                 echo "Error: " . mysqli_error($conn);
             }
 
+            // query for count how many total questions ...............................
+            $query_questions = "SELECT * FROM questions";
+            $result_questions = mysqli_query($conn, $query_questions);
+            $total_questions = mysqli_num_rows($result_questions);
+
             for($i = 1; $i <= $total_questions; $i++){
                 $question_id = $_POST["test_id-".$i];
+                $_SESSION['option-'.$question_id] = $_POST["option-".$question_id];
                 if(!isset($_POST["option-".$question_id]) ){
                     $query = "DELETE FROM users WHERE id = $last_inserted_id";
+                    $query2 = "DELETE FROM questions_options";
                     mysqli_query($conn, $query);
-
-                    // $query2 = "DELETE FROM questions_options";
-                    // mysqli_query($conn, $query2);
-
+                    mysqli_query($conn, $query2);
                     unset($_SESSION['last_inserted_user_id']);
                     // session_unset(); // Unset all the session variables
                     // session_destroy(); // Destroy the session data from the server and invalidate the session ID
                     $_SESSION['flag'] = true;
                     header('location:../index.php?msg=Please attend all questions');
                 }else{
-                    $_SESSION['option-'.$question_id] = $_POST["option-".$question_id];
                     $question_option = $_POST["option-".$question_id];
                     $option_id = 0;
                     if($question_option == "agree"){
@@ -69,12 +67,6 @@
             
             }
         }else{
-            for($i = 1; $i <= $total_questions; $i++){
-                $question_id = $_POST["test_id-".$i];
-                if(isset($_POST["option-".$question_id])){
-                    $_SESSION['option-'.$question_id] = $_POST["option-".$question_id];
-                }
-            }
             $_SESSION['flag'] = true;
             header('location:../index.php?msg=Your Name is Required');
         }

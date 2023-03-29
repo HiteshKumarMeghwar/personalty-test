@@ -346,7 +346,7 @@
                                                 </div>
                                                 <ul class="list-unstyled mb-0 col-12 col-md-4 text-dark-l1 text-90 text-left my-4 my-md-0">
                                                     <li class="mt-25">
-                                                        <!-- <i class="fa fa-check text-success-m2 text-110 mr-2 mt-1"></i> -->
+                                                        <i class="fa fa-check text-success-m2 text-110 mr-2 mt-1"></i>
                                                         <span class="text-110" style="font-family: cursive;">
                                                             Strongly Agree
                                                         </span>
@@ -355,7 +355,7 @@
                                                         />
                                                     </li>
                                                     <li>
-                                                        <!-- <i class="fa fa-check text-success-m2 text-110 mr-2 mt-1"></i> -->
+                                                        <i class="fa fa-check text-success-m2 text-110 mr-2 mt-1"></i>
                                                         <span>
                                                             <span class="t10" style="font-family: cursive;" >Agree</span>
                                                         </span>
@@ -364,7 +364,7 @@
                                                         />
                                                     </li>
                                                     <li class="mt-25">
-                                                        <!-- <i class="fa fa-check text-success-m2 text-110 mr-2 mt-1"></i> -->
+                                                        <i class="fa fa-check text-success-m2 text-110 mr-2 mt-1"></i>
                                                         <span class="text-110" style="font-family: cursive;">
                                                             Neither agree nor disagree
                                                         </span>
@@ -373,7 +373,7 @@
                                                         />
                                                     </li>
                                                     <li class="mt-25">
-                                                        <!-- <i class="fa fa-check text-success-m2 text-110 mr-2 mt-1"></i> -->
+                                                        <i class="fa fa-check text-success-m2 text-110 mr-2 mt-1"></i>
                                                         <span class="text-110" style="font-family: cursive;">
                                                             Disagree
                                                         </span>
@@ -382,7 +382,7 @@
                                                         />
                                                     </li>
                                                     <li class="mt-25">
-                                                        <!-- <i class="fa fa-check text-success-m2 text-110 mr-2 mt-1"></i> -->
+                                                        <i class="fa fa-check text-success-m2 text-110 mr-2 mt-1"></i>
                                                         <span class="text-110" style="font-family: cursive;">
                                                             Strongly disagree
                                                         </span>
