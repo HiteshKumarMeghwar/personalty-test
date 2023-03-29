@@ -321,7 +321,7 @@
             ?>
                 <form method="post" action="content/my_process.php">
                     <div class="mb-3">
-                        <div id="emailHelp" class="form-text mb-3 text-center" style="font-family: cursive; color: red; font-weight: bolder; font-size: 20px">First Enter Your Full Name Correctly.</div>
+                        <div id="emailHelp" class="form-text mb-3 text-center" style="font-family: cursive; color: red; font-weight: bolder; font-size: 15  px">First Enter Your Full Name Correctly.</div>
                         <label for="exampleInputEmail1" class="form-label" style="font-family: cursive;"><span style="font-family: cursive; color: red;">* </span>Full Name</label>
                         <input type="text" class="form-control" name="name" value="<?php echo $_SESSION['session_name'] ?? '' ?>">
                     </div>
