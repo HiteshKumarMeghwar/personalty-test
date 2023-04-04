@@ -426,7 +426,7 @@
     radioOptions.forEach(option => {
         option.addEventListener('click', () => {
             // Set the value of the corresponding radio button
-            const radioInput = option.previousElementSibling;
+            const radioInput = option.nextElementSibling;
             radioInput.checked = true;
             
             // Copy the text of the clicked option
