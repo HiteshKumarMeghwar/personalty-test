@@ -347,7 +347,7 @@
                                                 <ul class="list-unstyled mb-0 col-12 col-md-4 text-dark-l1 text-90 text-left my-4 my-md-0">
                                                     <li class="mt-25">
                                                         <!-- <i class="fa fa-check text-success-m2 text-110 mr-2 mt-1"></i> -->
-                                                        <span class="text-110 radio-option" style="font-family: cursive;">
+                                                        <span class="text-110" style="font-family: cursive;">
                                                             Strongly Agree
                                                         </span>
                                                         <input type="radio" name="option-<?php echo $question_id ?>" value="strongly_agree" 
@@ -356,7 +356,7 @@
                                                     </li>
                                                     <li>
                                                         <!-- <i class="fa fa-check text-success-m2 text-110 mr-2 mt-1"></i> -->
-                                                        <span class="text-110 radio-option" style="font-family: cursive;" >
+                                                        <span class="t10" style="font-family: cursive;" >
                                                             Agree
                                                         </span>
                                                         <input type="radio" name="option-<?php echo $question_id ?>" value="agree" 
@@ -365,7 +365,7 @@
                                                     </li>
                                                     <li class="mt-25">
                                                         <!-- <i class="fa fa-check text-success-m2 text-110 mr-2 mt-1"></i> -->
-                                                        <span class="text-110 radio-option" style="font-family: cursive;">
+                                                        <span class="text-110" style="font-family: cursive;">
                                                             Neither agree nor disagree
                                                         </span>
                                                         <input type="radio" name="option-<?php echo $question_id ?>" value="neither" 
@@ -374,7 +374,7 @@
                                                     </li>
                                                     <li class="mt-25">
                                                         <!-- <i class="fa fa-check text-success-m2 text-110 mr-2 mt-1"></i> -->
-                                                        <span class="text-110 radio-option" style="font-family: cursive;">
+                                                        <span class="text-110" style="font-family: cursive;">
                                                             Disagree
                                                         </span>
                                                         <input type="radio" name="option-<?php echo $question_id ?>" value="disagree" 
@@ -383,7 +383,7 @@
                                                     </li>
                                                     <li class="mt-25">
                                                         <!-- <i class="fa fa-check text-success-m2 text-110 mr-2 mt-1"></i> -->
-                                                        <span class="text-110 radio-option" style="font-family: cursive;">
+                                                        <span class="text-110" style="font-family: cursive;">
                                                             Strongly disagree
                                                         </span>
                                                         <input type="radio" name="option-<?php echo $question_id ?>" value="strongly_disagree" 
@@ -420,18 +420,3 @@
         }
     ?>
 </div>
-
-<script>
-    const radioOptions = document.querySelectorAll('.radio-option');
-    radioOptions.forEach(option => {
-    option.addEventListener('click', () => {
-        // Set the value of the corresponding radio button
-        const radioInput = option.nextElementSibling;
-        radioInput.checked = true;
-        
-        // Copy the text of the clicked option
-        const textToCopy = option.textContent.trim();
-        navigator.clipboard.writeText(textToCopy);
-    });
-    });
-</script>

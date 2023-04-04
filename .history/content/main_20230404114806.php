@@ -420,18 +420,3 @@
         }
     ?>
 </div>
-
-<script>
-    const radioOptions = document.querySelectorAll('.radio-option');
-    radioOptions.forEach(option => {
-    option.addEventListener('click', () => {
-        // Set the value of the corresponding radio button
-        const radioInput = option.nextElementSibling;
-        radioInput.checked = true;
-        
-        // Copy the text of the clicked option
-        const textToCopy = option.textContent.trim();
-        navigator.clipboard.writeText(textToCopy);
-    });
-    });
-</script>
